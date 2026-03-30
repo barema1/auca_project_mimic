@@ -23,6 +23,10 @@
             <h3 class="log">Login</h3>
             <p class="welcome">Welcome! Please enter your details.</p>
 
+            {% if error %}
+            <p style="color:red; text-align:center; margin-bottom:10px;">{{ error }}</p>
+            {% endif %}
+
             <label for="email">Enter your Email or ID</label>
             <input id="email" name="email" class="carre" type="text"
                    placeholder="Enter your Email or ID" required>
