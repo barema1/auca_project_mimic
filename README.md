@@ -1,6 +1,6 @@
 # AUCA Project Mimic — Updated Documentation
 
-A Django-based web application that mimics the AUCA (Adventist University of Central Africa) student portal, featuring a login page and a fully designed student dashboard.
+A Django-based web application that mimics the AUCA (Adventist University of Central Africa) student portal, featuring a login page and a fully designed student dashboard with Cloudinary integration for media storage.
 
 ---
 
@@ -8,6 +8,7 @@ A Django-based web application that mimics the AUCA (Adventist University of Cen
 
 - [Demo Credentials](#demo-credentials)
 - [How to Run](#how-to-run)
+- [Cloudinary Integration](#cloudinary-integration)
 - [What Was Built](#what-was-built)
   - [Login Page](#1-login-page)
   - [Dashboard — Initial Version](#2-dashboard--initial-version)
@@ -34,29 +35,68 @@ Two demo accounts are available. No registration is required — use these direc
 
 ## How to Run
 
-```bash
-# 1. Activate virtual environment
-# Windows
-py312-env\Scripts\activate
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd auca_project_mimic
+   ```
 
-# Linux / Mac
-source py312-env/bin/activate
+2. **Create a virtual environment**:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
-# 2. Install dependencies
-pip install -r requirements.txt
+3. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-# 3. Apply migrations
-python manage.py migrate
+4. **Set up environment variables**:
+   Create a `.env` file in the root directory with the following variables:
+   ```env
+   SECRET_KEY=your-secret-key-here
+   DEBUG=True
+   DATABASE_URL=sqlite:///db.sqlite3  # Or PostgreSQL URL
+   CLOUDINARY_CLOUD_NAME=your-cloud-name
+   CLOUDINARY_API_KEY=your-api-key
+   CLOUDINARY_API_SECRET=your-api-secret
+   ```
 
-# 4. Start the server
-python manage.py runserver
-```
+5. **Run migrations**:
+   ```bash
+   python manage.py migrate
+   ```
 
-Then open your browser at:
+6. **Upload media files to Cloudinary** (optional, if local media exists):
+   ```bash
+   python manage.py upload_to_cloudinary
+   ```
 
-- **Login page**: `http://127.0.0.1:8000/`
-- **Dashboard**: `http://127.0.0.1:8000/dashboard/` *(redirects to login if not authenticated)*
-- **Admin panel**: `http://127.0.0.1:8000/admin/`
+7. **Run the development server**:
+   ```bash
+   python manage.py runserver
+   ```
+
+8. **Access the application**:
+   Open your browser and go to `http://127.0.0.1:8000/`.
+
+---
+
+## Cloudinary Integration
+
+This project uses Cloudinary for media storage to handle images, favicons, and other static assets efficiently.
+
+### Setup
+- Install required packages: `cloudinary`, `django-cloudinary-storage`
+- Configure Cloudinary credentials in `.env` file
+- Add Cloudinary settings in `auca_project_mimic/settings/base.py`
+- Use the management command `upload_to_cloudinary` to migrate local media files to Cloudinary
+
+### Features
+- Automatic media URL generation in templates
+- Favicon served via Cloudinary
+- Secure and scalable media storage
 
 ---
 
@@ -186,28 +226,54 @@ auca_project_mimic/
 ├── READMEUpdated.md                   # This file
 │
 ├── auca_project_mimic/
-│   ├── settings.py
+│   ├── settings/
+│   │   ├── base.py                    # Base settings with Cloudinary config
+│   │   ├── development.py
+│   │   └── production.py
 │   ├── urls.py                        # Includes accounts.urls
 │   ├── asgi.py
 │   └── wsgi.py
 │
-├── accounts/
-│   ├── templates/
-│   │   └── accounts/
-│   │       ├── login.html             # Login page
-│   │       └── dashboard.html        # Student dashboard (final redesign)
-│   ├── views.py                       # login_view, dashboard_view, logout_view
-│   ├── urls.py                        # URL patterns for accounts app
-│   ├── models.py
-│   ├── admin.py
-│   └── apps.py
+├── apps/
+│   ├── accounts/
+│   │   ├── templates/
+│   │   │   └── accounts/
+│   │   │       ├── login.html         # Login page with Cloudinary favicon
+│   │   │       ├── dashboard.html     # Student dashboard (final redesign)
+│   │   │       ├── signup.html
+│   │   │       └── forgot_password.html
+│   │   ├── views.py                   # login_view, dashboard_view, logout_view
+│   │   ├── urls.py                    # URL patterns for accounts app
+│   │   ├── models.py
+│   │   ├── admin.py
+│   │   └── apps.py
+│   │
+│   ├── core/
+│   │   ├── management/
+│   │   │   └── commands/
+│   │   │       └── upload_to_cloudinary.py  # Custom command to upload media to Cloudinary
+│   │   ├── views.py
+│   │   ├── models.py
+│   │   ├── admin.py
+│   │   └── apps.py
+│   │
+│   └── [other apps: assessments, courses, finances, grades]
 │
-└── static/
-    ├── css/
-    │   └── style.css                  # Login page styles
-    └── img/
-        ├── 10001.png                  # AUCA logo
-        ├── 10002.jpg                  # Login page cover image
+├── static/
+│   ├── css/
+│   │   └── style.css                  # Login page styles
+│   └── js/
+│
+├── templates/
+│   ├── base.html                      # Base template
+│   └── includes/
+│
+├── utils/
+│   ├── cloudinary_utils.py            # Cloudinary utility functions
+│   └── ml_utils.py
+│
+└── docs/
+```
         ├── fulldesk.png
         └── mobileview.png
 ```
@@ -230,11 +296,13 @@ auca_project_mimic/
 | Layer | Technology |
 |-------|-----------|
 | Backend | Django 6.0.3 |
-| Language | Python 3.8+ |
-| Database | SQLite (development) |
+| Language | Python 3.12 |
+| Database | SQLite (development), PostgreSQL (production) |
+| Media Storage | Cloudinary |
+| Environment | python-decouple |
 | Frontend | HTML5, CSS3 (no external libraries) |
 | Session | Django built-in session framework |
-| Static files | Django `{% static %}` template tag |
+| Static files | Django `{% static %}` template tag, Cloudinary for media |
 
 ---
 
@@ -244,6 +312,8 @@ auca_project_mimic/
 - All dashboard data (courses, grades, finances, announcements) is currently static sample data hardcoded in the template
 - Authentication uses a simple in-memory dictionary — no Django `User` model or database authentication is implemented yet
 - The "My Profile", "Download Transcript", and "Pay Now" buttons link to `#` as placeholders for future implementation
+- Cloudinary is integrated for media storage; local media directories (media/, static/uploads/, etc.) have been uploaded and removed
+- Favicon is served via Cloudinary URLs in templates
 
 ---
 
@@ -257,4 +327,4 @@ auca_project_mimic/
 
 ---
 
-*Last updated: June 2025*
+*Last updated: April 11, 2026*
