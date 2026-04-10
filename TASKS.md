@@ -1,7 +1,7 @@
 # AUCA Project Mimic -- Team Workflow & Task Assignment
 
 This document outlines the complete workflow, branch strategy, and
-specific task assignments for all six team members. Follow this guide
+specific task assignments for different team members. Follow this guide
 strictly to ensure smooth collaboration and timely completion.
 
 ------------------------------------------------------------------------
