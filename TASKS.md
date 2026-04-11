@@ -70,9 +70,11 @@ Team lead(i) reviews and merges PRs(some time someone else can do it, we're lead
                                                
 
   Team 4       Team4                     Courses, enrollments,
-  (Student B)                                  timetable
+  (+250 793 330 328 ~Josiane🤍/          timetable
+  Diane Auca +250 783 829 899          
+  )                                  
 
-  Team 5       @studentC                     ML/AI evaluation module,
+  Team 5       Team 5                     ML/AI evaluation module,
   (Student C)                                  assessments
   -----------------------------------------------------------------------
 
