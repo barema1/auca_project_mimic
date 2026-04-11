@@ -250,8 +250,7 @@ Working course system with enrollment and timetable.
 -   Allow lecturer override
 
 ### Deliverable PR:
-
-Full assessment system with AI grading support.
+Complete assessment flow with AI evaluation; lecturer can see AI suggestions and override grades.
 
 ------------------------------------------------------------------------
 
