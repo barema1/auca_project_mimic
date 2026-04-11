@@ -199,7 +199,7 @@ Clean responsive UI with dynamic dashboard.
 
 ------------------------------------------------------------------------
 
-## 🔹 Member 5: Student B -- Courses & Timetable
+## 🔹 Team 4: (+250 793 330 328 ~Josiane🤍/Diane Auca +250 783 829 899) -- Courses & Timetable
 
 **Branch:** `feature/courses-studentb`
 
