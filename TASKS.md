@@ -107,7 +107,7 @@ model migrated.
 -   Password reset via email (console backend for development)
 -   User profile page (view & edit)
 -   Profile picture upload using Cloudinary field
--   Role-based access control (decorators)
+-   Role-based access control (decorators for student/staff/lecturer)
 
 ### Methodology:
 
