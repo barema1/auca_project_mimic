@@ -69,7 +69,7 @@ Team lead(i) reviews and merges PRs(some time someone else can do it, we're lead
   )                                  
                                                
 
-  Team 4       @studentB                     Courses, enrollments,
+  Team 4       Team4                     Courses, enrollments,
   (Student B)                                  timetable
 
   Team 5       @studentC                     ML/AI evaluation module,
