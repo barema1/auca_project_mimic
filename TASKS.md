@@ -113,7 +113,7 @@ Team lead(i) reviews and merges PRs(some time someone else can do it, we're lead
 
 ### Deliverable PR:
 
-Contains working project configuration, Cloudinary ready, custom User
+Contains working project configuration, Cloudinary ready,Progress Bb(NeonTech) custom User
 model migrated.
 
 ------------------------------------------------------------------------
