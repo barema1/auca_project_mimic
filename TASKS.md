@@ -43,46 +43,24 @@ We will use GitHub Flow with a develop branch as integration point.
 
 Team lead(i) reviews and merges PRs(some time someone else can do it, we're leader).
 
-------------------------------------------------------------------------
-
 # Team Members & Roles
 
-  -----------------------------------------------------------------------
-  Member         Team               Primary Focus
-  -------------- ----------------------------- --------------------------
-  Victoire       Team 0                     Architecture, code
-  (Lead)                                       reviews, deployment,
-                                               integration
-
-  Team1                              Authentication, user
-  (+250 780 919 720 ~26949 Umutoni Gisele/     profiles, password reset
-   +250 791 906 031 Bosco )             
-
-  Team2       Team 2                     Database models,
-  (+250 788 426 996 ~Hirwa Roy 24174/     migrations, API structure
-   +250 791 761 076 ~26454_clement 
-    )                                   
-
-  Team3       Team3                     Frontend (dashboard,
-  (+254 790 877089~Anduru/               responsive UI, base templates)     
-  +250 782 802 631~Praise Mutijima
-  )                                  
-                                               
-
-  Team 4       Team4                     Courses, enrollments,
-  (+250 793 330 328 ~Josiane🤍/          timetable
-  Diane Auca +250 783 829 899          
-  )                                  
-
-  Team 5       Team 5                     ML/AI evaluation module,
-  (Deborah +250 791 319 715/              assessments
-   Valentin +250 793 037 644
-  )                                  
-  -----------------------------------------------------------------------
-
-
+| # | Member | Phone | Team | Primary Focus |
+|---|--------|-------|------|----------------|
+| 1 | Victoire (Lead) | +250-79-44-12-876 | Team 0 | Architecture, code reviews, deployment, integration |
+| 2 | Umutoni Gisele | +250 780 919 720 | Team 1 | Authentication, user profiles, password reset |
+| 3 | Bosco | +250 791 906 031 | Team 1 | Authentication, user profiles, password reset |
+| 4 | Hirwa Roy | +250 788 426 996 | Team 2 | Database models, migrations, API structure |
+| 5 | Clement | +250 791 761 076 | Team 2 | Database models, migrations, API structure |
+| 6 | Anduru | +254 790 877 089 | Team 3 | Frontend (dashboard, responsive UI, base templates) |
+| 7 | Praise Mutijima | +250 782 802 631 | Team 3 | Frontend (dashboard, responsive UI, base templates) |
+| 8 | Josiane | +250 793 330 328 | Team 4 | Courses, enrollments, timetable |
+| 9 | Diane Auca | +250 783 829 899 | Team 4 | Courses, enrollments, timetable |
+| 10 | Deborah | +250 791 319 715 | Team 5 | ML/AI evaluation module, assessments |
+| 11 | Valentin | +250 793 037 644 | Team 5 | ML/AI evaluation module, assessments |
 
 ------------------------------------------------------------------------
+
 
 # Detailed Task Assignments
 
